@@ -197,12 +197,9 @@ def main(args):
                         print (str(i+1) + ': ' + sentence)
                         write(detections[i], orig_img, sampled_caption,sentence, i+1, coco_classes, colors)
                         #list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
-        
-        cv2.imshow("frame", orig_img)
-        key = cv2.waitKey(0)
 
-        if key & 0xFF == ord('q'): 
-            break
+        filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
+        cv2.imwrite(filename, orig_img)
 
 #    image = Image.open(args.image)   
 #    plt.imshow(np.asarray(image))   
