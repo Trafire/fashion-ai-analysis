@@ -198,7 +198,7 @@ def main(args):
 
                         print(str(i + 1) + ': ' + sentence)
                         write(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
-                        data.append((detections[i], sampled_caption, sentence, i + 1))
+                        print(image_details(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors))
                         # list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
 
         print(data)

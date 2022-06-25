@@ -90,6 +90,28 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
         #    cv2.putText(img, phrase, (c1[0], c1[1] + t_size[1] + 150 + i*20), cv2.FONT_HERSHEY_PLAIN, 1, color, 1 )
     return img
 
+def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
+    human_detected = False
+    cls = int(x[-1])
+    attrs_name = ['Tops', 'color', 'pattern', 'gender', 'season', 'type', 'sleeves', 'Bottoms', 'color', 'pattern',
+                  'gender', 'season', 'sleeves', 'type', "legpose"]
+
+    outfits = []
+    if cls == 0:  # for human bbox only detection
+        #label = "{0}: {1}".format(coco_classes[cls], order)
+        human_detected = True
+        j = 0
+        clothing = {}
+        for i in range(len(attrs_name)):
+            if attrs_name[i] == "Bottoms" or attrs_name[i] == "Tops":
+                clothing = {"type": attrs_name[i]}
+                outfits.append(clothing)
+                j = j + 1
+            else:
+                clothing[attrs_name[i]] = raw_pharses[i - j]
+
+    return outfits, human_detected
+
 def view_image(bboxes):
     img = np.full((416, 416, 3), 100, dtype='uint8')
     for bbox in bboxes:
