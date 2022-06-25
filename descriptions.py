@@ -124,7 +124,7 @@ def main(args):
         detections = write_results(detections, args.confidence, num_classes, device, nms=True, nms_conf=args.nms_thresh)
         # original image dimension --> im_dim
         # view_image(detections)
-
+        data = []
         if type(detections) != int:
             if detections.shape[0]:
                 bboxs = detections[:, 1:5].clone()
@@ -198,8 +198,10 @@ def main(args):
 
                         print(str(i + 1) + ': ' + sentence)
                         write(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
+                        data.append((sampled_caption, sentence, i + 1))
                         # list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
 
+        print(data)
         filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
         cv2.imwrite(filename, orig_img)
 
