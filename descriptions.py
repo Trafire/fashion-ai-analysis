@@ -205,6 +205,7 @@ def main(args):
 
         filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
         cv2.imwrite(filename, orig_img)
+        print(results)
         return results
 
 
@@ -240,7 +241,7 @@ if __name__ == '__main__':
     coco_classes = load_classes('data/coco.names')
     colors = pkl.load(open("pallete2", "rb"))
 
-    print(main(args))
+    main(args)
 
 
 
