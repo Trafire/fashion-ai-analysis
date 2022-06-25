@@ -110,8 +110,8 @@ def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
                 clothing[attrs_name[i]] = raw_pharses[i - j]
 
     return outfits, (
-        (int(c1[0]),int(c1[0])),
-        (int(c2[0]), int(c2[0])),
+        (int(c1[0]),int(c1[1])),
+        (int(c2[0]), int(c2[1])),
     )
 
 def view_image(bboxes):
