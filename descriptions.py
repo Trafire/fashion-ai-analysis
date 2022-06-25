@@ -207,7 +207,7 @@ def main(args):
 
         filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
         cv2.imwrite(filename, orig_img)
-        pprint('results', results)
+        pprint(results)
         return results
 
 
