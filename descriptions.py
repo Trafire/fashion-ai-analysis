@@ -50,6 +50,7 @@ device = torch.device('cpu')
 
 
 def main(args):
+    results = {}
     # Image preprocessing
     transform = transforms.Compose([
         transforms.ToTensor()])
@@ -94,7 +95,7 @@ def main(args):
     encoder.eval()
 
     encoder.load_state_dict(torch.load(args.encoder_path, map_location=device))
-    results = {}
+
     for inx, image_filename in enumerate(imlist):
 
         print('---------------------------')
