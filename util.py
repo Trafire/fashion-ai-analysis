@@ -91,7 +91,6 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
     return img
 
 def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
-    human_detected = False
     cls = int(x[-1])
     attrs_name = ['Tops', 'color', 'pattern', 'gender', 'season', 'type', 'sleeves', 'Bottoms', 'color', 'pattern',
                   'gender', 'season', 'sleeves', 'type', "legpose"]
@@ -99,7 +98,6 @@ def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
     outfits = []
     if cls == 0:  # for human bbox only detection
         #label = "{0}: {1}".format(coco_classes[cls], order)
-        human_detected = True
         j = 0
         clothing = {}
         for i in range(len(attrs_name)):
@@ -110,7 +108,7 @@ def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
             else:
                 clothing[attrs_name[i]] = raw_pharses[i - j]
 
-    return outfits, human_detected
+    return outfits
 
 def view_image(bboxes):
     img = np.full((416, 416, 3), 100, dtype='uint8')
