@@ -109,7 +109,10 @@ def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
             else:
                 clothing[attrs_name[i]] = raw_pharses[i - j]
 
-    return outfits, (c1,c2)
+    return outfits, (
+        (int(c1[0]),int(c1[0])),
+        (int(c2[0]), int(c2[0])),
+    )
 
 def view_image(bboxes):
     img = np.full((416, 416, 3), 100, dtype='uint8')
