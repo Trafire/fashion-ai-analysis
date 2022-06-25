@@ -92,8 +92,9 @@ def main(args):
     encoder.eval()
 
     encoder.load_state_dict(torch.load(args.encoder_path, map_location=device))
-
+    results = {}
     for inx, image_filename in enumerate(imlist):
+
         print('---------------------------')
         print(image_filename)
         preload_img = cv2.imread(image_filename)
@@ -198,12 +199,13 @@ def main(args):
 
                         print(str(i + 1) + ': ' + sentence)
                         write(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
-                        print(image_details(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors))
+                        results[image_filename] = image_details(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
                         # list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
 
-        print(data)
+
         filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
         cv2.imwrite(filename, orig_img)
+        return results
 
 
 #    image = Image.open(args.image)
@@ -238,7 +240,7 @@ if __name__ == '__main__':
     coco_classes = load_classes('data/coco.names')
     colors = pkl.load(open("pallete2", "rb"))
 
-    main(args)
+    print(main(args))
 
 
 
