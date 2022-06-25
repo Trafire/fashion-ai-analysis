@@ -68,8 +68,7 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
         color = random.choice(colors)
         cv2.rectangle(img, c1, c2,color, 3)
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1, 1)[0]
-        c2 = c1[0] + t_size[0] + 3, c1[1] + len(attrs_name)*t_size[1] + 4
-        # cv2.rectangle(img, c1, c2, color, -1)
+
 
         j = 0
         for i in range(len(attrs_name)):
@@ -91,6 +90,8 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
     return img
 
 def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
+    c1 = tuple(x[1:3].int())
+    c2 = tuple(x[3:5].int())
     cls = int(x[-1])
     attrs_name = ['Tops', 'color', 'pattern', 'gender', 'season', 'type', 'sleeves', 'Bottoms', 'color', 'pattern',
                   'gender', 'season', 'sleeves', 'type', "legpose"]
@@ -108,7 +109,7 @@ def image_details(x, img, raw_pharses,phrases, order, coco_classes, colors):
             else:
                 clothing[attrs_name[i]] = raw_pharses[i - j]
 
-    return outfits
+    return outfits, (c1,c2)
 
 def view_image(bboxes):
     img = np.full((416, 416, 3), 100, dtype='uint8')
