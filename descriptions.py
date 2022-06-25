@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import torch
 import numpy as np
 import argparse
@@ -205,7 +207,7 @@ def main(args):
 
         filename = '/fashion-ai-analysis/save/' + image_filename[image_filename.rindex('/'):]
         cv2.imwrite(filename, orig_img)
-        print(results)
+        pprint('results', results)
         return results
 
 
