@@ -59,8 +59,8 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
     c1 = tuple(x[1:3].int())
     c2 = tuple(x[3:5].int())
     cls = int(x[-1])
-    attrs_name = ['Tops', 'color', 'pattern', 'gender', 'season', 'type', 'spleeves', 'Bottoms', 'color', 'pattern',
-                  'gender', 'season', 'spleeves', 'type', "legpose"]
+    attrs_name = ['Tops', 'color', 'pattern', 'gender', 'season', 'type', 'sleeves', 'Bottoms', 'color', 'pattern',
+                  'gender', 'season', 'sleeves', 'type', "legpose"]
 
     if cls == 0:  # for human bbox only detection
         #label = "{0}: {1}".format(coco_classes[cls], order)
