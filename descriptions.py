@@ -197,7 +197,7 @@ def main(args):
                         # again sampling for testing
 
                         print(str(i + 1) + ': ' + sentence)
-                        # write(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
+                        write(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors)
                         print(image_details(detections[i], orig_img, sampled_caption, sentence, i + 1, coco_classes, colors))
                         # list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
 

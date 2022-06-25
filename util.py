@@ -80,8 +80,8 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
 
                 text = "  "+attrs_name[i] + ":" + raw_pharses[i - j]
 
-            cv2.putText(img, label + " " + text, (c1[0] -t_size[0], c1[1] + t_size[1] + 5 + i*t_size[1]), cv2.FONT_HERSHEY_PLAIN, 1,
-                        [225, 255, 255], 1)
+            # cv2.putText(img, label + " " + text, (c1[0] -t_size[0], c1[1] + t_size[1] + 5 + i*t_size[1]), cv2.FONT_HERSHEY_PLAIN, 1,
+            #             [225, 255, 255], 1)
 
 
         #cv2.putText(img, label+" "+phrases, (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1)
