@@ -151,10 +151,10 @@ def sampling_sentence(samples, probs, vocab):
         #sentence = ' '.join(sampled_caption)
         
         # Print out the image and the generated caption
-        #print (sentence)
-        #sys.stdout.write(sentence)
-        #print (probs_ids)
-        #captions.append(sentence)
+        print (sentence)
+        sys.stdout.write(sentence)
+        print (probs_ids)
+        captions.append(sentence)
     return captions
 
 def sampling_sentence1(sampled_ids, vocab):
