@@ -1,0 +1,3 @@
+opencv
+matplotlib
+git+https://github.com/longcw/RoIAlign.pytorch
