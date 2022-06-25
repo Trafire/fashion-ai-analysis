@@ -69,7 +69,7 @@ def write(x, img, raw_pharses,phrases, order, coco_classes, colors):
         cv2.rectangle(img, c1, c2,color, 3)
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1, 1)[0]
         c2 = c1[0] + t_size[0] + 3, c1[1] + len(attrs_name)*t_size[1] + 4
-        cv2.rectangle(img, c1, c2, color, -1)
+        # cv2.rectangle(img, c1, c2, color, -1)
 
         j = 0
         for i in range(len(attrs_name)):
