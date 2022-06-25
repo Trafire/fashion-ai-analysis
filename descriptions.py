@@ -191,7 +191,7 @@ def main(args):
                         c11 = sampled_caption[11]
                         sampled_caption[11] = sampled_caption[10]
                         sampled_caption[10] = c11
-
+                        print(194, sampled_caption)
                         sentence = '/'.join(sampled_caption)
 
                         # again sampling for testing
