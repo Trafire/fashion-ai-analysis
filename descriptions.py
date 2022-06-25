@@ -186,6 +186,7 @@ def main(args):
                             max_index = torch.max(outputs[j][i].data, 0)[1]
                             word = attribute_pool[j][max_index]
                             sampled_caption.append(word)
+                            print(word)
 
                         c11 = sampled_caption[11]
                         sampled_caption[11] = sampled_caption[10]
